@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('partials/commonhead.ejs') %>
+  </head>
+  <body>
+    <div class="container">
+      <form class="d-inline" method="post" action="/">
+        <div class="md-form md-outline ">
+          <input type="text" id="form1" class="form-control" name="ytlink">
+          <label for="form1">Add youtube link</label>
+        </div>
+        <button class="btn btn-primary">Convert</button>
+      </form>
+    </div>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <%- include('partials/commonscript.ejs') %>
+  </body>
+</html>
