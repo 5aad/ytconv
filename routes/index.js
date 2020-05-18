@@ -37,10 +37,7 @@ router.post("/", async (req, res) => {
             const output = `${info.title}.${track.languageCode}.xml`;
             console.log("Saving to", output);
             https.get(track.baseUrl, (res) => {
-              res.pipe(res, fs.createWriteStream(output), (err) => {
-                if (err) console.error("Pipeline failed.", err);
-                else console.log("Pipeline succeeded.");
-              });
+              res.pipe(fs.createWriteStream(output));
             });
           } else {
             console.log("Could not find captions for", lang);
@@ -79,9 +76,8 @@ router.post("/", async (req, res) => {
             console.log("URL", track.baseUrl);
             const output = `${info.title}.${track.languageCode}.xml`;
             console.log("Saving to", output);
-            const file = fs.createWriteStream(output);
             https.get(track.baseUrl, (res) => {
-              res.pipe(file);
+              res.pipe(fs.createWriteStream(output));
             });
           } else {
             console.log("Could not find captions for", lang);
